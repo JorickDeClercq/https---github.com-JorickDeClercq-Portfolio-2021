@@ -1,0 +1,57 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+    body{
+        font-family: sans-serif;
+        width: 100%;
+        min-height: 100vh;
+        font-size: 25px;
+    }
+}
+
+$bp : (
+    mobile : 480px,
+    tablet : 768px,
+    desktop :  1440px,
+);
+
+@mixin query($screen) {
+    @each $key, $value in $bp{
+        @if ($screen == $key){
+            @media (max-width : $value){@content;}
+        }
+    }
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 25px;
+
+    height: 10vh;
+
+    &__logo{}
+    &__navigation{
+        display: flex;
+        flex-direction: row;
+
+        a{
+            padding-left: 15px;
+            color: black;
+            text-decoration: none;
+        }
+
+
+    }
+}
+
+@include query(mobile){
+    .header{
+    &__logo{}
+    &__navigation{}
+}
+}
