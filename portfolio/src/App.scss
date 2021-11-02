@@ -8,6 +8,7 @@
         width: 100%;
         min-height: 100vh;
         font-size: 25px;
+        overflow-x: hidden;
     }
 }
 
@@ -35,6 +36,11 @@ $bp : (
     height: 10vh;
 
     &__logo{}
+
+    &__btn{
+        display: none;
+    }
+
     &__navigation{
         display: flex;
         flex-direction: row;
@@ -51,7 +57,24 @@ $bp : (
 
 @include query(mobile){
     .header{
-    &__logo{}
-    &__navigation{}
-}
+
+        &__logo{}
+
+        &__btn{
+            display: flex;
+            position: absolute;
+            right: 25px;
+        }
+
+        &__navigation{
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            position: absolute;
+            right: 0px;
+            top: 10vh;
+            width: 100%;
+            height: 90vh;
+        }
+    }
 }
